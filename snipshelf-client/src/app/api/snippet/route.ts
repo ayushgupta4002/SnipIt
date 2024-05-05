@@ -23,10 +23,12 @@ export async function POST(req : NextRequest) {
     try {
         const body = await req.json()
         const data = {
+            SnipId: body.author+"-"+Math.floor(Math.random() * Date.now()).toString(),
             author : body.author,
             name : body.name,
             description : body.description,
-            snippet : body.snippet
+            snippet : body.snippet,
+            flames:0
         }
         const docRef = await addDoc(collection(db, "Snippets"), data);
 
