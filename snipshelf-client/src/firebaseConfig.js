@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDT-qvmu5HrlVGKkkTr-EjLR5tCaDavIG0",
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_APIKEY,
   authDomain: "snipshelf.firebaseapp.com",
   projectId: "snipshelf",
   storageBucket: "snipshelf.appspot.com",
-  messagingSenderId: "1034308492939",
-  appId: "1:1034308492939:web:83ac88b62b539779f43e8e"
+  messagingSenderId:process.env.NEXT_PUBLIC_FIREBASE_MSG_ID,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APPID
 };
 
 // Initialize Firebase

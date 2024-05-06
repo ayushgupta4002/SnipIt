@@ -34,11 +34,12 @@ function Page({ params }: any) {
 
   const db = getFirestore(app);
   useEffect(() => {
-    SetLoading(true)
+    
     console.log(params);
 
     getData();
-    SetLoading(false)
+
+
   }, [params]);
 
   const getData = async () => {
@@ -57,6 +58,8 @@ function Page({ params }: any) {
     const docUser = querySnapshotforUser.docs[0];
     SetSnippetData({author: docUser.data().userName, ...doc.data() }as SnippetDataInterface);
     setId(doc.id);
+    SetLoading(false)
+
 
   };
 
