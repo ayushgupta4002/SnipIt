@@ -1,5 +1,11 @@
 import { SignUp } from "@clerk/nextjs";
 
 export default function Page() {
-  return <SignUp path="/sign-up" fallbackRedirectUrl="/Profile" />;
+  return (
+    <div className="flex flex-row justify-center w-full h-full items-center">
+      <div className="mx-auto mt-[10vh]">
+        <SignUp path="/sign-up" fallbackRedirectUrl="/Profile" />
+      </div>
+    </div>
+  );
 }

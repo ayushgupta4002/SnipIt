@@ -32,7 +32,7 @@ function Page() {
               </div>
               <div className="font-normal text-lg font-sans mt-4 mb-4">
                Type your API Key and Press <code>Enter</code>,Congratulations! you are now done!
-                <Image src={"/snip-push2.jpg"} width={700} height={300} alt="Welcome!"  className="mt-2"/>
+                <Image src={"/snip-auth2.jpg"} width={700} height={300} alt="Welcome!"  className="mt-2"/>
 
               </div>
             </li>
