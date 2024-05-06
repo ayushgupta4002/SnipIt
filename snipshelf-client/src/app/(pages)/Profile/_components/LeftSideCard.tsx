@@ -5,6 +5,7 @@ import { getFirestore } from "firebase/firestore";
 import React from "react";
 import { SnippetDataInterface } from "../page";
 import Link from "next/link";
+import { Bookmark } from "lucide-react";
 
 function LeftSideCard({
   user,
@@ -19,7 +20,7 @@ function LeftSideCard({
       <div className="flex flex-col w-[3/4vw] mx-10 ">
         <div className="flex flex-row justify-between mx-[2vw] mt-[2vh] items-center">
           <div className="text-4xl font-semibold flex flex-row gap-1 items-center">
-            Your SnipShelf
+            <Bookmark className="h-18 w-17"/> Your SnipShelf
           </div>
         </div>
 
