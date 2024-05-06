@@ -20,6 +20,8 @@ import Navbar from "@/components/Navbar";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
+import { useAuth } from "@/app/context/ContextAuth";
+import Loader from "@/components/Loader";
 
 function Page({ params }: any) {
   const router = useRouter()
@@ -28,23 +30,34 @@ function Page({ params }: any) {
   const [EditDescription, SetEditDescription] = useState<boolean>(false);
   const [Description, SetDescription] = useState<string>("");
   const [Id, setId] = useState<any>();
+  const[Loading , SetLoading] = useState(true);
 
   const db = getFirestore(app);
   useEffect(() => {
+    SetLoading(true)
     console.log(params);
 
     getData();
+    SetLoading(false)
   }, [params]);
 
   const getData = async () => {
+   
     const q = query(
       collection(db, "Snippets"),
       where("SnipId", "==", params.id)
     );
     const querySnapshot = await getDocs(q);
     const doc = querySnapshot.docs[0];
-    SetSnippetData(doc.data() as SnippetDataInterface);
+    const q2 = query(
+      collection(db, "Users"),
+      where("userId", "==", querySnapshot.docs[0].data().authorUserId)
+    );
+    const querySnapshotforUser = await getDocs(q2);
+    const docUser = querySnapshotforUser.docs[0];
+    SetSnippetData({author: docUser.data().userName, ...doc.data() }as SnippetDataInterface);
     setId(doc.id);
+
   };
 
   const saveDescription = async () => {
@@ -67,7 +80,8 @@ function Page({ params }: any) {
   };
 
   return (
-    <div className="min-h-screen max-h-full max-w-screen flex flex-col no-scrollbar pb-5  ">
+    <>
+   {Loading ? <><Loader/></> :<> <div className="min-h-screen max-h-full max-w-screen flex flex-col no-scrollbar pb-5  ">
       <Navbar />
       <hr className="bg-[#e2e8f0cc]"></hr>
 
@@ -111,7 +125,7 @@ function Page({ params }: any) {
                 {SnippetData?.description == "" ? (
                   <>
                     <div
-                      className=" mt-3 text-lg text-cyan-800 underline  underline-offset-2	cursor-pointer"
+                      className=" mt-3 text-lg ml-1 text-cyan-800 underline  underline-offset-2	cursor-pointer"
                       onClick={() => {
                         SetEditDescription((prev) => !prev);
                       }}
@@ -141,7 +155,8 @@ function Page({ params }: any) {
 
         <div className="basis-1/4 m-4"></div>
       </div>
-    </div>
+    </div></>}
+    </>
   );
 }
 export default Page;

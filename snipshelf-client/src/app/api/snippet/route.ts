@@ -8,6 +8,8 @@ export async function GET() {
     try {
         const querySnapshot = await getDocs(collection(db, "Snippets"));
         const usersData = querySnapshot.docs.map(doc => doc.data());
+
+        
         // console.log(usersData[2].author)
 
         return NextResponse.json(usersData, { status: 200 });
@@ -22,12 +24,19 @@ export async function POST(req : NextRequest) {
     
     try {
         const body = await req.json()
+
+        var str :string= body.name;
+        const name : string = str.replaceAll(/\s+/g, "")
+        const slug : string = str.replaceAll( /\//g, "-")
+
+
         const data = {
-            SnipId: body.author+"-"+Math.floor(Math.random() * Date.now()).toString(),
-            author : body.author,
+            SnipId: slug +"-"+Math.floor(Math.random() * Date.now()).toString(),
             name : body.name,
+            authorUserId:body.userId,
             description : body.description,
             snippet : body.snippet,
+            ApiToken: body.ApiToken,
             flames:0
         }
         const docRef = await addDoc(collection(db, "Snippets"), data);

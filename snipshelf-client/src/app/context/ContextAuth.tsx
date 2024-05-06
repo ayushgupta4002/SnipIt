@@ -18,7 +18,11 @@ interface AuthContextType {
   allSnippets: SnippetDataInterface[];
   getUser: any;
   getAllItems: any;
-  flameCount: number; // Adjust the type according to your needs
+  flameCount: number; 
+  loading:boolean;
+  SetLoadingFn:any;
+  LoadingFalse :any;// Adjust the type according to your needs
+  LoadingTrue:any;
 }
 
 const AuthContext = createContext<AuthContextType>({
@@ -27,6 +31,10 @@ const AuthContext = createContext<AuthContextType>({
   getUser: () => {},
   getAllItems: () => {},
   flameCount: 0,
+  loading:false,
+  SetLoadingFn:()=>{},
+  LoadingFalse : ()=>{},
+  LoadingTrue:()=>{}
 });
 
 export const useAuth = () => {
@@ -35,6 +43,7 @@ export const useAuth = () => {
 
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const db = getFirestore(app);
+  const [Loading, SetLoading]= useState<boolean>(false)
   const [ApiKey, setApiKey] = useState<string>();
   const [AllUserSnippets, setAllUserSnippets] = useState<
     SnippetDataInterface[]
@@ -60,11 +69,11 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     }
   };
 
-  const getAllItems = async (user: any) => {
+  const getAllItems = async (userId: any ,username:string) => {
     try {
       const q = query(
         collection(db, "Snippets"),
-        where("author", "==", user?.username)
+        where("authorUserId", "==", userId)
       );
       const querySnapshot = await getDocs(q);
       console.log(querySnapshot);
@@ -73,6 +82,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         SetflameCount((prev) => prev + flames);
         return {
           id: doc.id,
+          author : username,
           ...doc.data(),
         } as unknown as SnippetDataInterface;
       });
@@ -84,12 +94,27 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     }
   };
 
+  const Loadingfn= async() =>{
+    SetLoading((prev)=>!prev)
+  }
+  const LoadingFalse= async() =>{
+    SetLoading((prev)=>prev=false)
+  }
+  const LoadingTrue= async() =>{
+    SetLoading((prev)=>prev=true)
+  }
+
   const value = {
     api: ApiKey,
     allSnippets: AllUserSnippets,
     getUser: getUserData,
     getAllItems: getAllItems,
     flameCount: flameCount,
+    loading:Loading,
+    SetLoadingFn:Loadingfn,
+    LoadingFalse :LoadingFalse,
+    LoadingTrue:LoadingTrue
+    
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

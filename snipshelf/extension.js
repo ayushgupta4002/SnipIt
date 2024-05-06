@@ -10,7 +10,6 @@ const vscode = require("vscode");
  * @param {vscode.ExtensionContext} context
  */
 
-let ApiKey = "";
 async function activate(context) {
   //@ts-ignore
   const secrets = context["secrets"]; //SecretStorage-object
@@ -33,7 +32,7 @@ async function activate(context) {
               console.log(resp);
               vscode.window.showInformationMessage("auth success");
               await secrets.store("user", resp.API_token); //Save a secret
-              await secrets.store("userName", resp.userName); //Save a secret
+              await secrets.store("userId", resp.userId); //Save a secret
 
 
               // context.secrets.store('warehouse.ApiKey', key);
@@ -68,7 +67,7 @@ async function activate(context) {
     "snipshelf.push",
     async function () {
       const mySecret = await secrets.get("user");
-      const userName = await secrets.get("userName");
+      const userId = await secrets.get("userId");
 
       console.log(mySecret);
       if (mySecret == undefined) {
@@ -83,7 +82,14 @@ async function activate(context) {
       vscode.window
         .showInputBox({ prompt: "Enter your Name for snippet:" })
         .then((name) => {
-          pushSnippet(text, userName, name)
+
+          if(text.length<4){
+            vscode.window.showErrorMessage(
+              "Please Select something to Push!"
+            );
+            return;
+          }
+          pushSnippet(text, userId, name , mySecret)
             .then((resp) => {
               vscode.window.showInformationMessage(
                 "Snippet Pushed Successfully!"
@@ -101,12 +107,16 @@ async function activate(context) {
   let disposable4 = vscode.commands.registerCommand(
     "snipshelf.pull",
     async function () {
+      const userId = await secrets.get("userId");
+      const mySecret = await secrets.get("user");
+
+
       const editor = vscode.window.activeTextEditor; // Get the active text editor
       if (!editor) {
         vscode.window.showErrorMessage("No active text editor found.");
         return;
       }
-     SnippetsData = fetchData();
+     SnippetsData = fetchData(userId);
 
 
       const menu = await vscode.window.showQuickPick(SnippetsData, {
@@ -154,12 +164,13 @@ async function authenticateUser(key) {
   });
 }
 
-async function pushSnippet(text, userName , name) {
+async function pushSnippet(text, userId , name, mySecret) {
   const bodyData = {
-    author: userName,
+    userId: userId,
     snippet: text,
     name: name,
     description: "",
+    ApiToken:mySecret,
   };
 
   const res = await fetch(`http://localhost:3000/api/snippet`, {
@@ -180,12 +191,15 @@ async function pushSnippet(text, userName , name) {
 }
 
 
-async function fetchData() {
-  const res = await fetch(`http://localhost:3000/api/snippet`, {
-    method: "GET",
+async function fetchData(userId) {
+  const res = await fetch(`http://localhost:3000/api/getSnippet`, {
+    method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
+    body: JSON.stringify({
+      userId : userId
+    }),
   });
   if (res.status != 200) {
     return;
