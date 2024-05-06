@@ -5,7 +5,7 @@ import React from "react";
 
 function Navbar() {
   return (
-    <div className="bg-[#f8f9fb] w-full s">
+    <div className="bg-[#f8f9fb] w-full d">
       <header className="bg-transparent h-[11vh] w-full">
         <div className=" flex h-16 flex-row justify-between max-w-screen-xl items-center gap-8 px-1 sm:px-4 lg:px-6">
           <a

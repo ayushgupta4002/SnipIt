@@ -1,65 +1,53 @@
-# snipshelf README
+# Snipshelf for Visual Studio Code
 
-This is the README for your extension "snipshelf". After writing up a brief description, we recommend including the following sections.
+[Snipshelf][snipshelf] is a VS Code plugin for productivity and reusability to saving your time!.
 
-## Features
+## Installation
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+1. Press `F1` or `⌘ + Shift + P` and type `install`. Pick `Extensions: Install Extension`.
 
-For example if there is an image subfolder under your extension project workspace:
+2. Type `Snipshelf` and hit `enter`.
 
-\!\[feature X\]\(images/feature-x.png\)
+3. Press `F1` or `⌘ + Shift + P` then type `snip:auth`.
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+4. Enter your [api key][api key], then press `enter`.
 
-## Requirements
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+## Usage
 
-## Extension Settings
+1. To Push any Snippet
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+   > Select any part of code that you want to save.
 
-For example:
+   > Press `F1` or `⌘ + Shift + P` then type `snip:push`.
 
-This extension contributes the following settings:
+   > Select a Name for your Snippet and Press `Enter`.
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
 
-## Known Issues
+2. To Pull any Snippet
+   
+   > Press `F1` or `⌘ + Shift + P` then type `snip:pull`.
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+   > Select a Snippet from the list or search for one and Press `Enter`.   
 
-## Release Notes
 
-Users appreciate release notes as you update your extension.
 
-### 1.0.0
+## Uninstalling
 
-Initial release of ...
+1. Click the Extensions sidebar item in VS Code.
 
-### 1.0.1
+2. Type `Snipshelf` and hit enter.
 
-Fixed issue #.
+3. Click the settings icon next to WakaTime, then click Uninstall.
 
-### 1.1.0
 
-Added features X, Y, and Z.
+## Contributing
 
----
+ Uh oh ! Gives us some time, We are going to make it open-source :)
 
-## Working with Markdown
 
-You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
+Made with :heart: by the [CrazySage][about].
 
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+[snipshelf]: https://snipshelf.vercel.app/
+[api key]: https://snipshelf.vercel.app/Profile
+[about]: https://twitter.com/Ayush3241

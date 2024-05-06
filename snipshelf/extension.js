@@ -143,7 +143,7 @@ async function authenticateUser(key) {
     token: key,
   };
 
-  const res = await fetch(`http://localhost:3000/api/auth`, {
+  const res = await fetch(`https://snipshelf.vercel.app/api/auth`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -173,7 +173,7 @@ async function pushSnippet(text, userId , name, mySecret) {
     ApiToken:mySecret,
   };
 
-  const res = await fetch(`http://localhost:3000/api/snippet`, {
+  const res = await fetch(`https://snipshelf.vercel.app/api/snippet`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -192,7 +192,7 @@ async function pushSnippet(text, userId , name, mySecret) {
 
 
 async function fetchData(userId) {
-  const res = await fetch(`http://localhost:3000/api/getSnippet`, {
+  const res = await fetch(`https://snipshelf.vercel.app/api/getSnippet`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

@@ -1,8 +1,11 @@
 {
   "name": "snipshelf",
   "displayName": "Snipshelf",
+  "publisher": "Ayush12",
   "description": "",
-  "version": "0.0.1",
+  "icon": "images/logo.png",
+
+  "version": "0.0.2",
   "engines": {
     "vscode": "^1.88.0"
   },

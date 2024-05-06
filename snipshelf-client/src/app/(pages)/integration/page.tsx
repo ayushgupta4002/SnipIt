@@ -12,7 +12,7 @@ function Page() {
         <Image src={"/vscode.png"} width={65} height={65} alt="Welcome!" />
       </div>
       <div className="text-center my-4">
-        The plugin for productivity, reuability and saving your time!
+        The plugin for productivity and reusability to save your time!
       </div>
       <div className="flex flex-col mt-7 mx-[13vw] ">
         <div className="text-2xl font-bold ">Installation and Setup</div>
