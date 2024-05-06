@@ -18,7 +18,7 @@ export default function Hero() {
 
             <Link
               className="mt-8 flex flex-wrap justify-center gap-4"
-              href="/dashboard"
+              href="/Profile"
             >
               <div className="block w-full rounded border bg-slate-300 px-12 py-3 text-sm font-medium text-black hover:bg-transparent hover:text-white focus:outline-none focus:ring active:text-opacity-75 sm:w-auto">
                 Get Started

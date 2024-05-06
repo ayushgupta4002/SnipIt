@@ -86,7 +86,7 @@ function Page({ params }: any) {
           <div className="mt-8 ml-1 text-2xl font-semibold" id="headerTite">
             {SnippetData?.name}
           </div>
-          <div className="mt-3 mb-5 ml-1 text-base font-normal">
+          <div className="mt-3 mb-5  text-base font-normal">
             {EditDescription ? (
               <>
                 <div className="mt-5  w-[60%] 	">
@@ -128,7 +128,7 @@ function Page({ params }: any) {
           <div className="ml-1 ">
             <PostActions flames={SnippetData?.flames || 0} />
           </div>
-          <div className="ml-1 mt-8 font-semibold">
+          <div className="ml-1 mt-8 mb-1 font-semibold">
             Code :
           </div>
           <div className="rounded-sm mb-7 bg-[#f8f9fb]  border border-slate-300 p-4">

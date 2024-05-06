@@ -36,9 +36,9 @@ function LeftSideCard({
             <><div className="mx-8 mt-10 text-xl">
               Uh Oh! You don't have any Snippets !
               </div>
-              <div className="mx-8 mt-5 text-base text-cyan-800 underline  underline-offset-2	cursor-pointer">
-               add your First Snippet here!
-              </div></>
+              <Link href={"/integration"}><div className="mx-8 mt-5 text-base text-cyan-800 underline  underline-offset-2	cursor-pointer">
+               add your First Snippet here! 
+              </div></Link></>
           )}
         </div>
       </div>
