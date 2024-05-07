@@ -170,7 +170,6 @@ async function pushSnippet(text, userId , name, mySecret) {
     snippet: text,
     name: name,
     description: "",
-    ApiToken:mySecret,
   };
 
   const res = await fetch(`https://snipshelf.vercel.app/api/snippet`, {
