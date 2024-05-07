@@ -12,9 +12,9 @@ function Navbar() {
             className="block text-teal-600 flex flex-row items-center"
             href={"/Profile"}
           >
-            <Image src={"/logo.png"} width={60} height={60} alt="Welcome!" />
-            <span className="text-black tracking-wide text-2xl roboto font-[500] px-2">
-              Snipit
+            <Image src={"/logo.png"} width={57} height={57} alt="Welcome!" />
+            <span className="text-black tracking-wide text-3xl mt-1 roboto font-[700] px-2">
+              SnipIt
             </span>
           </Link>
           <div className="flex flex-row items-center gap-6">

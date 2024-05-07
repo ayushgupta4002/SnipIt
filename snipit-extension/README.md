@@ -36,7 +36,7 @@
 
 1. Click the Extensions sidebar item in VS Code.
 
-2. Type `Snipit` and hit enter.
+2. Type `Snip-it` and hit enter.
 
 3. Click the settings icon next to WakaTime, then click Uninstall.
 
@@ -46,8 +46,8 @@
  Uh oh ! Gives us some time, We are going to make it open-source :)
 
 
-Made with :heart: by the [CrazySage][about].
+Made with a Smile by the [CrazySage][about].
 
-[Snipit]: https://snipit1.vercel.app/
-[api key]: https://snipit1.vercel.app/Profile
+[Snipit]: https://www.snipit.tech/
+[api key]: https://www.snipit.tech/Profile
 [about]: https://twitter.com/Ayush3241
