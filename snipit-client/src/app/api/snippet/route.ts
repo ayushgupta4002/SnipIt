@@ -26,8 +26,9 @@ export async function POST(req : NextRequest) {
         const body = await req.json()
 
         const str = body.name;
-        const name = str.replaceAll(/\s+/g, "");
-        const slug = str.replaceAll(/\//g, "-");
+        const words = str.split(/\s+/);
+        const joinedString = words.join(""); 
+        const slug = joinedString.replaceAll("/", "-");
         
 
 
