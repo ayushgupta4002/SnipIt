@@ -1,12 +1,11 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { ArrowLeft, Check, CroissantIcon, Cross, Edit, Edit2Icon, X } from "lucide-react";
+import { ArrowLeft, Edit2Icon } from "lucide-react";
 import Link from "next/link";
 import PostActions from "@/components/PostActions";
 import {
   collection,
   doc,
-  getDoc,
   getDocs,
   getFirestore,
   query,
@@ -14,25 +13,21 @@ import {
   where,
 } from "firebase/firestore";
 import { app } from "@/firebaseConfig";
-import RightSideCard from "../../Profile/_components/RightSideCard";
 import Navbar from "@/components/Navbar";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
-import { useAuth } from "@/app/context/ContextAuth";
 import Loader from "@/components/Loader";
 import { Input } from "@/components/ui/input";
 import { SnippetDataInterface } from "@/app/utills/Interfaces";
-
+import {timeAgo} from "@/app/utills/DateUtility"
 function Page({ params }: any) {
   const router = useRouter();
 
   const [SnippetData, SetSnippetData] = useState<SnippetDataInterface>();
   const [Edit, SetEdit] = useState<boolean>(false);
-
   const [Description, SetDescription] = useState<string>("");
   const [Name, SetName] = useState<string>("");
-
   const [Id, setId] = useState<any>();
   const [Loading, SetLoading] = useState(true);
   const [selectedLine, setSelectedLine] = useState<number | null>(null);
@@ -46,6 +41,8 @@ function Page({ params }: any) {
     console.log(params);
 
     getData();
+   
+
   }, [params]);
 
   const getData = async () => {
@@ -117,8 +114,7 @@ function Page({ params }: any) {
                   <div className="text-base  roboto text-lg font-medium flex flex-col justify-center  ">
                     user/{SnippetData?.author}
                     <div className="text-sm font-normal text-[#c6bedc]">
-                      {/* 7hr ago */}
-                    </div>
+                      {timeAgo(SnippetData?.CreatedAt)}                    </div>
                   </div>
                 </div>
                 <div
@@ -187,7 +183,8 @@ function Page({ params }: any) {
                       </>
                     ) : (
                       <>
-                        {SnippetData?.description && SnippetData?.description.length <2 ? (
+                        {SnippetData&&SnippetData?.description.length <2 ? (
+                          
                           <>
                             <div
                               className=" mt-3 text-lg roboto text-cyan-800 underline  underline-offset-2	cursor-pointer"
@@ -201,14 +198,14 @@ function Page({ params }: any) {
                         ) : (
                           <div className="  w-[90%] roboto font-[400] ">
                             
-                            {SnippetData?.description}
+                            {SnippetData?.description} 
                           </div>
                         )}
                       </>
                     )}{" "}
                   </div>
 
-                  {Edit || SnippetData?.description == "" ? (
+                  {Edit ? (
                     <></>
                   ) : (
                     <>

@@ -6,4 +6,5 @@ export interface SnippetDataInterface {
     flames: number;
     SnipId: string;
     private :boolean;
+    CreatedAt : number;
   }
