@@ -25,9 +25,10 @@ export async function POST(req : NextRequest) {
     try {
         const body = await req.json()
 
-        var str :string= body.name;
-        const name : string = str.replaceAll(/\s+/g, "")
-        const slug : string = str.replaceAll( /\//g, "-")
+        const str = body.name;
+        const name = str.replaceAll(/\s+/g, "");
+        const slug = str.replaceAll(/\//g, "-");
+        
 
 
         const data = {
@@ -49,3 +50,5 @@ export async function POST(req : NextRequest) {
         return NextResponse.error(); // No additional options needed
     }
 }
+
+
