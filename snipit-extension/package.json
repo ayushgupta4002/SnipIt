@@ -1,11 +1,11 @@
 {
   "name": "snipit",
-  "displayName": "SnipIt.",
-  "publisher": "Ayush12",
+  "displayName": "snip-it",
+  "publisher": "snipit123",
   "description": "",
   "icon": "images/logo.png",
 
-  "version": "0.0.2",
+  "version": "1.0.0",
   "engines": {
     "vscode": "^1.88.0"
   },

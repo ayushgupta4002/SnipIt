@@ -9,10 +9,10 @@ import React  from "react";
 function Header() {
   return (
     <header className="bg-black h-[11vh] ">
-  <div className="mx-auto flex h-17 max-w-screen-xl items-center gap-8 px-4 pt-1 sm:px-6 lg:px-8">
+  <div className="mx-auto flex h-17 pt-2 max-w-screen-xl items-center gap-8 px-4 pt-1 sm:px-6 lg:px-8">
     <a className="block text-teal-600 flex flex-row items-center" href="#">
-      <Image src={"/logo.png"} width={65} height={65} alt="Welcome!" />
-      <span className="text-white text-3xl  roboto font-semibold px-2">Snipit</span>
+      <Image src={"/logo2.png"} width={65} height={65} alt="Welcome!" />
+      <span className="text-white text-3xl mt-1  roboto font-semibold tracking-wide px-2">SnipIt</span>
     </a>
 
     <div className="flex flex-1 items-center justify-end md:justify-between">

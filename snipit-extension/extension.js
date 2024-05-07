@@ -143,7 +143,7 @@ async function authenticateUser(key) {
     token: key,
   };
 
-  const res = await fetch(`https://snipit1.vercel.app/api/auth`, {
+  const res = await fetch(`https://www.snipit.tech/api/auth`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -172,7 +172,7 @@ async function pushSnippet(text, userId , name, mySecret) {
     description: "",
   };
 
-  const res = await fetch(`https://snipit1.vercel.app/api/snippet`, {
+  const res = await fetch(`https://www.snipit.tech/api/snippet`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -191,7 +191,7 @@ async function pushSnippet(text, userId , name, mySecret) {
 
 
 async function fetchData(userId) {
-  const res = await fetch(`https://snipit1.vercel.app/api/getSnippet`, {
+  const res = await fetch(`https://www.snipit.tech/api/getSnippet`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

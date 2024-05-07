@@ -21,7 +21,7 @@ function Page() {
             <li className="text-xl my-3">
             <div className="font-normal roboto text-lg mt-3">Press F1 or <span className="border p-1 bg-slate-100 border-slate-400 font-mono rounded-lg">CMD + Shift + P</span> and type install. Pick Extensions:
               Install Extension:Snipit. </div>
-              <Image src={"/SnipShelfMain.jpg"} width={700} height={300} alt="Welcome!"  className="mt-5"/>
+              <Image src={"/snipitMain.jpg"} width={700} height={300} alt="Welcome!"  className="mt-5"/>
 
             </li>
             <li className="text-xl mt-5">
