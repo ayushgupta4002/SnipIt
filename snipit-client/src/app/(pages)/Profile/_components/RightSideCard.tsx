@@ -40,7 +40,7 @@ function RightSideCard({ user,SnippetData }: { user: any , SnippetData: SnippetD
       <FlamesComponent/>
         <hr className="h-[1px] mx-4 mt-2 border-0 dark:bg-gray-700 bg-slate-600"></hr>
 
-        <div className="px-4 mt-8 mb-4 text-base text-black roboto">SnipShelf API Token :</div>
+        <div className="px-4 mt-8 mb-4 text-base text-black roboto">Snipit API Token :</div>
         <APiKeyField user={user}/>
       </div>
     </div>

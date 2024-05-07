@@ -14,7 +14,7 @@ function Navbar() {
           >
             <Image src={"/logo.png"} width={60} height={60} alt="Welcome!" />
             <span className="text-black tracking-wide text-2xl roboto font-[500] px-2">
-              Snipshelf
+              Snipit
             </span>
           </Link>
           <div className="flex flex-row items-center gap-6">

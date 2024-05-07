@@ -18,7 +18,7 @@ export default function Hero() {
             </h1>
 
             <p className="mx-auto roboto font-medium  text-lg tracking-wide  max-w-4xl sm:text-xl/relaxed">
-            Introducing SnipShelf, your go-to solution for effortlessly managing and reusing your coding components - and so much more.
+            Introducing Snipit, your go-to solution for effortlessly managing and reusing your coding components - and so much more.
             </p>
 
             <Link

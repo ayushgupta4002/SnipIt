@@ -20,7 +20,7 @@ function LeftSideCard({
       <div className="flex flex-col w-[3/4vw] mx-10 ">
         <div className="flex flex-row justify-between mx-[2vw] mt-[2vh] items-center">
           <div className="text-4xl font-medium flex roboto tracking-wide flex-row gap-1 items-center">
-            <Bookmark className="h-18 w-17 "/> Your SnipShelf
+            <Bookmark className="h-18 w-17 "/> Your Snips
           </div>
         </div>
 

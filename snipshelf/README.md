@@ -1,12 +1,12 @@
-# Snipshelf for Visual Studio Code
+# Snipit for Visual Studio Code
 
-[Snipshelf][snipshelf] is a VS Code plugin for productivity and reusability to saving your time!.
+[Snipit][Snipit] is a VS Code plugin for productivity and reusability to saving your time!.
 
 ## Installation
 
 1. Press `F1` or `⌘ + Shift + P` and type `install`. Pick `Extensions: Install Extension`.
 
-2. Type `Snipshelf` and hit `enter`.
+2. Type `Snipit` and hit `enter`.
 
 3. Press `F1` or `⌘ + Shift + P` then type `snip:auth`.
 
@@ -36,7 +36,7 @@
 
 1. Click the Extensions sidebar item in VS Code.
 
-2. Type `Snipshelf` and hit enter.
+2. Type `Snipit` and hit enter.
 
 3. Click the settings icon next to WakaTime, then click Uninstall.
 
@@ -48,6 +48,6 @@
 
 Made with :heart: by the [CrazySage][about].
 
-[snipshelf]: https://snipshelf.vercel.app/
-[api key]: https://snipshelf.vercel.app/Profile
+[Snipit]: https://snipit1.vercel.app/
+[api key]: https://snipit1.vercel.app/Profile
 [about]: https://twitter.com/Ayush3241

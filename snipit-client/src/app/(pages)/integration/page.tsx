@@ -8,7 +8,7 @@ function Page() {
       <Navbar />
       <hr className="bg-[#e2e8f0cc]"></hr>
       <div className=" text-3xl roboto font-semibold mt-8 flex flex-row items-center gap-4 justify-center">
-        <div>SnipShelf for VScode</div>
+        <div>Snipit for VScode</div>
         <Image src={"/vscode.png"} width={65} height={65} alt="Welcome!" />
       </div>
       <div className="text-center roboto font-medium text-lg my-4">
@@ -20,7 +20,7 @@ function Page() {
           <ol className="list-decimal gap-3">
             <li className="text-xl my-3">
             <div className="font-normal roboto text-lg mt-3">Press F1 or <span className="border p-1 bg-slate-100 border-slate-400 font-mono rounded-lg">CMD + Shift + P</span> and type install. Pick Extensions:
-              Install Extension:Snipshelf </div>
+              Install Extension:Snipit. </div>
               <Image src={"/SnipShelfMain.jpg"} width={700} height={300} alt="Welcome!"  className="mt-5"/>
 
             </li>

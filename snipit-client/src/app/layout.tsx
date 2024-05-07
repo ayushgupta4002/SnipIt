@@ -7,8 +7,8 @@ import { AuthProvider } from "./context/ContextAuth";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Snipshelf",
-  description: "Snipshelf",
+  title: "SnipIt",
+  description: "Snipit",
 };
 
 const roboto_init = Roboto({

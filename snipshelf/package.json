@@ -1,6 +1,6 @@
 {
-  "name": "snipshelf",
-  "displayName": "Snipshelf",
+  "name": "snipit",
+  "displayName": "SnipIt.",
   "publisher": "Ayush12",
   "description": "",
   "icon": "images/logo.png",
@@ -17,19 +17,19 @@
   "contributes": {
     "commands": [
       {
-        "command": "snipshelf.helloWorld",
+        "command": "snipit.helloWorld",
         "title": "Hello World"
       },
       {
-        "command": "snipshelf.push",
+        "command": "snipit.push",
         "title": "snip:push"
       },
       {
-        "command": "snipshelf.auth",
+        "command": "snipit.auth",
         "title": "snip:auth"
       },
       {
-        "command": "snipshelf.pull",
+        "command": "snipit.pull",
         "title": "snip:pull"
       }
     ]
