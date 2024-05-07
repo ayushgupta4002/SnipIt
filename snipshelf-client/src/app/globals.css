@@ -1,6 +1,13 @@
 @tailwind base;
   @tailwind components;
+ 
   @tailwind utilities;
+
+
+ 
+.body {
+  font-family: "sans";
+}
 
   @layer base {
     :root {
@@ -74,3 +81,7 @@
       @apply bg-background text-foreground;
     }
   }
+
+.roboto{
+  font-family: var(--font-roboto);
+}  

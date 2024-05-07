@@ -8,11 +8,11 @@ import React  from "react";
 
 function Header() {
   return (
-    <header className="bg-black h-[11vh]">
-  <div className="mx-auto flex h-16 max-w-screen-xl items-center gap-8 px-4 sm:px-6 lg:px-8">
+    <header className="bg-black h-[11vh] ">
+  <div className="mx-auto flex h-17 max-w-screen-xl items-center gap-8 px-4 pt-1 sm:px-6 lg:px-8">
     <a className="block text-teal-600 flex flex-row items-center" href="#">
       <Image src={"/logo.png"} width={65} height={65} alt="Welcome!" />
-      <span className="text-white text-xl font-semibold px-2">Snipshelf.dev</span>
+      <span className="text-white text-3xl  roboto font-semibold px-2">Snipshelf</span>
     </a>
 
     <div className="flex flex-1 items-center justify-end md:justify-between">
