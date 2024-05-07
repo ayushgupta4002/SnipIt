@@ -11,8 +11,7 @@ import {
 } from "firebase/firestore";
 import { createContext, useContext, useEffect, useState } from "react";
 import { app } from "@/firebaseConfig";
-import { SnippetDataInterface } from "../(pages)/Profile/page";
-
+import { SnippetDataInterface } from "../utills/Interfaces";
 interface AuthContextType {
   api: any;
   allSnippets: SnippetDataInterface[];

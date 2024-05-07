@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { ArrowLeft, Edit, Edit2Icon } from "lucide-react";
+import { ArrowLeft, Check, CroissantIcon, Cross, Edit, Edit2Icon, X } from "lucide-react";
 import Link from "next/link";
 import PostActions from "@/components/PostActions";
 import {
@@ -14,7 +14,6 @@ import {
   where,
 } from "firebase/firestore";
 import { app } from "@/firebaseConfig";
-import { SnippetDataInterface } from "../../Profile/page";
 import RightSideCard from "../../Profile/_components/RightSideCard";
 import Navbar from "@/components/Navbar";
 import { Textarea } from "@/components/ui/textarea";
@@ -22,13 +21,18 @@ import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/app/context/ContextAuth";
 import Loader from "@/components/Loader";
+import { Input } from "@/components/ui/input";
+import { SnippetDataInterface } from "@/app/utills/Interfaces";
 
 function Page({ params }: any) {
   const router = useRouter();
 
   const [SnippetData, SetSnippetData] = useState<SnippetDataInterface>();
-  const [EditDescription, SetEditDescription] = useState<boolean>(false);
+  const [Edit, SetEdit] = useState<boolean>(false);
+
   const [Description, SetDescription] = useState<string>("");
+  const [Name, SetName] = useState<string>("");
+
   const [Id, setId] = useState<any>();
   const [Loading, SetLoading] = useState(true);
   const [selectedLine, setSelectedLine] = useState<number | null>(null);
@@ -62,26 +66,31 @@ function Page({ params }: any) {
       ...doc.data(),
     } as SnippetDataInterface);
     setId(doc.id);
+    SetName(doc.data().name);
+    SetDescription(doc.data().description);
+
     SetLoading(false);
   };
+ 
 
-  const saveDescription = async () => {
+  const saveData = async () => {
     console.log(Id);
     console.log(Description);
     const docRef = doc(db, "Snippets", Id);
 
     await updateDoc(docRef, {
-      description: Description, // Update any fields you want here
+      description: Description,
+      name:Name
     })
       .then((resp) => {
-        console.log("document token updated with response : " + resp);
+        console.log("document updated with response : " + resp);
       })
       .catch((error) => {
         console.log(error);
       });
     getData();
 
-    SetEditDescription(false);
+    SetEdit(false);
   };
 
   return (
@@ -92,7 +101,6 @@ function Page({ params }: any) {
         </>
       ) : (
         <>
-          {" "}
           <div className="min-h-screen max-h-full max-w-screen flex flex-col no-scrollbar pb-5  ">
             <Navbar />
             <hr className="bg-[#e2e8f0cc]"></hr>
@@ -106,22 +114,49 @@ function Page({ params }: any) {
                   >
                     <ArrowLeft />
                   </div>
-                  <div className="text-base   font-medium flex flex-col justify-center  ">
+                  <div className="text-base  roboto text-lg font-medium flex flex-col justify-center  ">
                     user/{SnippetData?.author}
                     <div className="text-sm font-normal text-[#c6bedc]">
-                      7hr ago
+                      {/* 7hr ago */}
                     </div>
                   </div>
                 </div>
                 <div
-                  className="mt-8 ml-1 text-2xl font-semibold"
+                  className="mt-8  text-2xl font-semibold"
                   id="headerTite"
                 >
-                  {SnippetData?.name}
+                  {Edit ? (
+                    <><div className="mt-5 flex w-[70%] flex-row gap-3 items-end	">
+                    <Input
+                      className="bg-transparent font-medium text-base p-2 border rounded-lg border-slate-300 "
+                      placeholder="Type a Name here!"
+                      value={Name}
+                      onChange={(e) => SetName(e.target.value)}
+                    />
+                    
+                  </div></>
+                  ) : (
+                    <>
+                      {SnippetData?.name === "" ? (
+                        <>
+                          <div
+                            className=" mt-3 text-lg roboto  text-cyan-800 underline font-medium underline-offset-2	cursor-pointer"
+                            onClick={() => {
+                              SetEdit((prev) => !prev);
+                            }}
+                          >
+                            Add a Name for the Snippet !
+                          </div>
+                        </>
+                      ) : (
+                        <>{SnippetData?.name}</>
+                      )}
+                    </>
+                  )}
                 </div>
                 <div className="mt-3 mb-5 flex flex-row items-center gap-2  text-base font-normal">
                   <div className="w-[70%]">
-                    {EditDescription ? (
+                    {Edit ? (
                       <>
                         <div className="mt-5   	">
                           <Textarea
@@ -133,17 +168,17 @@ function Page({ params }: any) {
                           <div className=" flex flex-row gap-3 justify-end ">
                             <Button
                               variant="outline"
-                              className="bg-transparent rounded-full mt-2  text-base w-fit"
+                              className="bg-transparent rounded-full mt-2 roboto text-base w-fit"
                               onClick={() => {
-                                SetEditDescription((prev) => !prev);
+                                SetEdit((prev) => !prev);
                               }}
                             >
-                              Cancel
+                              cancel
                             </Button>
                             <Button
                               variant="outline"
-                              className="bg-transparent rounded-full mt-2  text-base w-fit"
-                              onClick={saveDescription}
+                              className="bg-transparent roboto rounded-full mt-2  text-base w-fit"
+                              onClick={saveData}
                             >
                               save
                             </Button>
@@ -152,35 +187,35 @@ function Page({ params }: any) {
                       </>
                     ) : (
                       <>
-                        {SnippetData?.description == "" ? (
+                        {SnippetData?.description && SnippetData?.description.length <2 ? (
                           <>
                             <div
-                              className=" mt-3 text-lg ml-1 text-cyan-800 underline  underline-offset-2	cursor-pointer"
+                              className=" mt-3 text-lg roboto text-cyan-800 underline  underline-offset-2	cursor-pointer"
                               onClick={() => {
-                                SetEditDescription((prev) => !prev);
+                                SetEdit((prev) => !prev);
                               }}
                             >
                               Add Description!
                             </div>
                           </>
                         ) : (
-                          <div className="ml-1  w-[70%] ">
-                            {" "}
-                            {SnippetData?.description}{" "}
+                          <div className="  w-[90%] roboto font-[400] ">
+                            
+                            {SnippetData?.description}
                           </div>
                         )}
                       </>
                     )}{" "}
                   </div>
 
-                  {EditDescription || SnippetData?.description == "" ? (
+                  {Edit || SnippetData?.description == "" ? (
                     <></>
                   ) : (
                     <>
                       <div
                         className="border broder-slate-500 rounded-full p-1 cursor-pointer"
                         onClick={() => {
-                          SetEditDescription((prev) => !prev);
+                          SetEdit((prev) => !prev);
                         }}
                       >
                         <Edit2Icon size={20} />
@@ -189,7 +224,8 @@ function Page({ params }: any) {
                   )}
                 </div>
                 <div className="ml-1 ">
-                  <PostActions flames={SnippetData?.flames || 0} />
+                  {SnippetData ?<PostActions SnippetData={SnippetData} /> : <></>}
+          
                 </div>
                 <div className="ml-1 mt-8 mb-1 font-semibold">Code :</div>
                 <div className="rounded-sm mb-7 bg-[#f8f9fb]  border border-slate-300  ">
@@ -213,12 +249,13 @@ function Page({ params }: any) {
                           >
                             {index + 1}
                           </div>
-                          <div  className={`${
-                              selectedLine === index
-                                ? "bg-cyan-100 w-full"
-                                : ""
+                          <div
+                            className={`${
+                              selectedLine === index ? "bg-cyan-100 w-full" : ""
                             }`}
-                          >{line}</div>
+                          >
+                            {line}
+                          </div>
                         </div>
                       ))}
                     </pre>
