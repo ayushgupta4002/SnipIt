@@ -15,12 +15,12 @@ async function activate(context) {
   const secrets = context["secrets"]; //SecretStorage-object
   //Get a secret
 
-  console.log('Congratulations, your extension "snipshelf" is now active!');
+  console.log('Congratulations, your extension "Snipit" is now active!');
 
 
   
   let disposable1 = vscode.commands.registerCommand(
-    "snipshelf.auth",
+    "snipit.auth",
     async function () {
       const mySecret = await secrets.get("user");
       vscode.window
@@ -47,7 +47,7 @@ async function activate(context) {
   );
 
   let disposable2 = vscode.commands.registerCommand(
-    "snipshelf.helloWorld",
+    "snipit.helloWorld",
     async function () {
       const mySecret = await secrets.get("user");
       console.log("console from helloworld ~~" + mySecret)
@@ -58,13 +58,13 @@ async function activate(context) {
         return;
       }
       vscode.window.showInformationMessage(
-        "Hello World from Snipshelf!" 
+        "Hello World from Snipit!" 
       );
     }
   );
 
   let disposable3 = vscode.commands.registerCommand(
-    "snipshelf.push",
+    "snipit.push",
     async function () {
       const mySecret = await secrets.get("user");
       const userId = await secrets.get("userId");
@@ -105,7 +105,7 @@ async function activate(context) {
   );
 
   let disposable4 = vscode.commands.registerCommand(
-    "snipshelf.pull",
+    "snipit.pull",
     async function () {
       const userId = await secrets.get("userId");
       const mySecret = await secrets.get("user");
@@ -143,7 +143,7 @@ async function authenticateUser(key) {
     token: key,
   };
 
-  const res = await fetch(`https://snipshelf.vercel.app/api/auth`, {
+  const res = await fetch(`https://snipit1.vercel.app/api/auth`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -152,7 +152,7 @@ async function authenticateUser(key) {
   });
 
   
-
+  
 
   return new Promise(async(resolve, reject) => {
     if (res.status !== 200) {
@@ -172,7 +172,7 @@ async function pushSnippet(text, userId , name, mySecret) {
     description: "",
   };
 
-  const res = await fetch(`https://snipshelf.vercel.app/api/snippet`, {
+  const res = await fetch(`https://snipit1.vercel.app/api/snippet`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -191,7 +191,7 @@ async function pushSnippet(text, userId , name, mySecret) {
 
 
 async function fetchData(userId) {
-  const res = await fetch(`https://snipshelf.vercel.app/api/getSnippet`, {
+  const res = await fetch(`https://snipit1.vercel.app/api/getSnippet`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
