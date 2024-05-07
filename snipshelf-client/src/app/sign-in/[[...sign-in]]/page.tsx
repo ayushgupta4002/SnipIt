@@ -6,7 +6,7 @@ export default function Page() {
       {" "}
       <div className="flex flex-row justify-center w-full h-full items-center">
         <div className="mx-auto mt-[10vh]">
-          <SignIn path="/sign-in" fallbackRedirectUrl="/Profile" />
+          <SignIn path="/sign-in"  forceRedirectUrl="/Profile" />
         </div>
       </div>
     </>
