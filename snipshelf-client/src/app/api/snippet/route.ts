@@ -36,8 +36,10 @@ export async function POST(req : NextRequest) {
             authorUserId:body.userId,
             description : body.description,
             snippet : body.snippet,
-            ApiToken: body.ApiToken,
-            flames:0
+            flames:0,
+            private:true,
+            CreatedAt:Date.now()
+
         }
         const docRef = await addDoc(collection(db, "Snippets"), data);
 

@@ -13,12 +13,12 @@ function Navbar() {
             href={"/Profile"}
           >
             <Image src={"/logo.png"} width={60} height={60} alt="Welcome!" />
-            <span className="text-black text-xl font-semibold px-2">
-              Snipshelf.dev
+            <span className="text-black tracking-wide text-2xl roboto font-[500] px-2">
+              Snipshelf
             </span>
           </Link>
           <div className="flex flex-row items-center gap-6">
-            <Link href={"/integration"}><div className="border border-slate-400 rounded-xl p-2 cursor-pointer">
+            <Link href={"/integration"}><div className="border border-slate-400 roboto rounded-xl p-2 cursor-pointer">
               Integration
             </div></Link>
             <div className=" mt-2">

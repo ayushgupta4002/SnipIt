@@ -20,14 +20,7 @@ import RightSideCard from "./_components/RightSideCard";
 import LeftSideCard from "./_components/LeftSideCard";
 import { useAuth } from "@/app/context/ContextAuth";
 import Loader from "@/components/Loader";
-export interface SnippetDataInterface {
-  author: string;
-  description: string;
-  name: string;
-  snippet: string;
-  flames: number;
-  SnipId: string;
-}
+
 function Page() {
   const db = getFirestore(app);
   const { isLoaded, isSignedIn, user } = useUser();

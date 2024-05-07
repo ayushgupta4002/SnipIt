@@ -1,7 +1,7 @@
 import { Share, ThumbsDownIcon, ThumbsUpIcon } from "lucide-react";
 import React from "react";
 import PostActions from "./PostActions";
-import { SnippetDataInterface } from "@/app/(pages)/Profile/page";
+import { SnippetDataInterface } from "@/app/utills/Interfaces";
 
 
 
@@ -22,12 +22,13 @@ function Post({
         <div className="text-sm font-normal text-black ">@{SnippetData.author}</div>
         <div className="text-xl font-semibold my-2 ">
 {SnippetData.name}      </div>
+
         <div className="text-base font-normal my-2 text-slate-800 ">
           {SnippetData.description== "" ? <> {SnippetData.snippet.substring(0, 40)}...</> : <> {SnippetData.description.substring(0, 40)}...</>}
        
 </div>
 
-     <PostActions flames={SnippetData.flames}/>
+     <PostActions SnippetData={SnippetData}/>
         <div></div>
       </div>
     </>
