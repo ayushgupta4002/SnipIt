@@ -1,6 +1,6 @@
 "use client"
 
-import { SignInButton, SignUpButton } from "@clerk/nextjs";
+import { SignInButton, SignUpButton, SignedOut } from "@clerk/nextjs";
 import Image from "next/image";
 import Link from "next/link";
 import React  from "react";
@@ -43,6 +43,8 @@ function Header() {
       </nav>
 
       <div className="flex items-center gap-4">
+
+        <SignedOut>
         <div className="sm:flex sm:gap-4">
         <Link href={"/sign-in"}>  <div
             className="block rounded-md  px-5 py-2.5 text-sm font-medium text-white transition hover:bg-teal-500"
@@ -58,6 +60,7 @@ function Header() {
             Register
           </div></Link>
         </div>
+        </SignedOut>
 
         {/* <button
           className="block rounded bg-gray-100 p-2.5 text-gray-600 transition hover:text-gray-600/75 md:hidden"
