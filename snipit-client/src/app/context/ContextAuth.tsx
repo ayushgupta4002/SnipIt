@@ -8,6 +8,7 @@ import {
   updateDoc,
   getDoc,
   doc,
+  deleteDoc,
 } from "firebase/firestore";
 import { createContext, useContext, useEffect, useState } from "react";
 import { app } from "@/firebaseConfig";
@@ -22,6 +23,7 @@ interface AuthContextType {
   SetLoadingFn:any;
   LoadingFalse :any;// Adjust the type according to your needs
   LoadingTrue:any;
+  changeAllSnippets:any
 }
 
 const AuthContext = createContext<AuthContextType>({
@@ -33,7 +35,8 @@ const AuthContext = createContext<AuthContextType>({
   loading:false,
   SetLoadingFn:()=>{},
   LoadingFalse : ()=>{},
-  LoadingTrue:()=>{}
+  LoadingTrue:()=>{},
+  changeAllSnippets:()=>{}
 });
 
 export const useAuth = () => {
@@ -103,6 +106,16 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     SetLoading((prev)=>prev=true)
   }
 
+
+  const changeAllSnippets =async (dataid:string ) =>{
+    console.log("del function called")
+    const updatedSnippets = AllUserSnippets.filter(
+      (snippet) => snippet.SnipId !== dataid
+    );
+    setAllUserSnippets(updatedSnippets)
+
+
+  }
   const value = {
     api: ApiKey,
     allSnippets: AllUserSnippets,
@@ -112,7 +125,8 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     loading:Loading,
     SetLoadingFn:Loadingfn,
     LoadingFalse :LoadingFalse,
-    LoadingTrue:LoadingTrue
+    LoadingTrue:LoadingTrue,
+    changeAllSnippets:changeAllSnippets
     
   };
 
