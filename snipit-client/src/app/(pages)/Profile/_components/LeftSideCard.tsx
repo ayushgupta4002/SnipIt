@@ -28,7 +28,7 @@ function LeftSideCard({
           {SnippetData.length > 0 ? (
             <>
               {SnippetData.map((item: SnippetDataInterface, index) => (
-                  <Post SnippetData={item} />
+                  <Post SnippetData={item} key={index} />
               ))}
             </>
           ) : (
