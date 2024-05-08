@@ -28,9 +28,7 @@ function LeftSideCard({
           {SnippetData.length > 0 ? (
             <>
               {SnippetData.map((item: SnippetDataInterface, index) => (
-                <Link href={`/Snippet/${item.SnipId}`} key={index}>
                   <Post SnippetData={item} />
-                </Link>
               ))}
             </>
           ) : (

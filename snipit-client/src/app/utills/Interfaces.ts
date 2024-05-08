@@ -1,4 +1,5 @@
 export interface SnippetDataInterface {
+     id:string;
     author: string;
     description: string;
     name: string;

@@ -1,16 +1,22 @@
+"use client"
 import { UserButton } from "@clerk/nextjs";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { usePathname } from 'next/navigation';
+import path from "path";
 
 function Navbar() {
+  const pathname = usePathname();
+  console.log("path name is" + pathname)
+
   return (
-    <div className="bg-[#f8f9fb] w-full ">
-      <header className="bg-transparent h-[11vh] w-full">
+    <div className="bg-[#f8f9fb] w-full  ">
+      <header className="bg-transparent h-fit w-full">
         <div className=" flex h-16 flex-row justify-between  items-center gap-8 px-1 sm:px-4 lg:px-6">
           <Link
             className="block text-teal-600 flex flex-row items-center"
-            href={"/Profile"}
+            href={ pathname == "/Profile" || pathname.includes("/Share") ? "/" : "/Profile" }
           >
             <Image src={"/logo.png"} width={57} height={57} alt="Welcome!" />
             <span className="text-black tracking-wide text-3xl mt-1 roboto font-[700] px-2">

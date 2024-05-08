@@ -3,6 +3,7 @@ import { Inter,Roboto } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider } from '@clerk/nextjs'
 import { AuthProvider } from "./context/ContextAuth";
+import { Toaster } from "@/components/ui/toaster"
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,7 +28,7 @@ export default function RootLayout({
     <ClerkProvider>
        <AuthProvider>
     <html lang="en">
-      <body className={`${inter.className} ${roboto_init.variable}`}>{children}</body>
+      <body className={`${inter.className} ${roboto_init.variable}`}>{children} <Toaster/></body>
     </html></AuthProvider>
     </ClerkProvider>
 

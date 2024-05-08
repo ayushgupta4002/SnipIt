@@ -40,8 +40,7 @@ export async function POST(req : NextRequest) {
             snippet : body.snippet,
             flames:0,
             private:true,
-            CreatedAt:Date.now()
-
+            CreatedAt:Date.now(),
         }
         const docRef = await addDoc(collection(db, "Snippets"), data);
 
