@@ -20,7 +20,7 @@ function Page() {
           <ol className="list-decimal gap-3 list-outside">
             <li className="text-xl max-sc-400:text-lg my-3 ml-2 ">
             <div className="font-normal roboto text-lg  max-sc-400:text-base  mt-3">Press F1 or <span className="border p-1 bg-slate-100 border-slate-400 font-mono rounded-lg">CMD + Shift + P</span> and type install. Pick Extensions:
-              Install Extension:Snipit. </div>
+              Install Extension:Snip-it. </div>
               <Image src={"/snipitMain.jpg"} width={700} height={300} alt="Welcome!"  className="mt-5"/>
 
             </li>
