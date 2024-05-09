@@ -182,7 +182,7 @@ async function pushSnippet(text, userId , name, mySecret) {
   return new Promise(async (resolve, reject) => {
     //   const data = await res.json();
     if (res.status !== 200) {
-      reject(new Error("Error posting data"));
+      reject(new Error(`Error posting data :  ${res.body.message}`));
     } else {
       resolve();
     }

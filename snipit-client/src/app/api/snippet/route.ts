@@ -1,5 +1,5 @@
 import { app } from "@/firebaseConfig";
-import { addDoc, collection, getDocs, getFirestore } from "firebase/firestore";
+import { addDoc, collection, getDocs, getFirestore, query, where } from "firebase/firestore";
 import { NextRequest, NextResponse } from "next/server";
 
 const db = getFirestore(app);
@@ -24,14 +24,17 @@ export async function POST(req : NextRequest) {
     
     try {
         const body = await req.json()
-
+        const q = query(
+            collection(db, "Users"),
+            where("userId", "==", body.userId )
+          );
+        const querySnapshot = await getDocs(q);
+        if(querySnapshot.docs.length != 0){
         const str = body.name;
         const words = str.split(/\s+/);
         const joinedString = words.join(""); 
         const slug = joinedString.replaceAll("/", "-");
-        
-
-
+    
         const data = {
             SnipId: slug +"-"+Math.floor(Math.random() * Date.now()).toString(),
             name : body.name,
@@ -45,6 +48,10 @@ export async function POST(req : NextRequest) {
         const docRef = await addDoc(collection(db, "Snippets"), data);
 
         return NextResponse.json({ message: "Data posted successfully", id: docRef.id }, { status: 200 });
+
+    }else{
+        return NextResponse.json({ message: "No User Found" }, { status: 404 });
+    }
     } catch (error) {
         console.error("Error fetching user data:", error);
         return NextResponse.error(); // No additional options needed
