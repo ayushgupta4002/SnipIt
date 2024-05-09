@@ -8,7 +8,7 @@ import path from "path";
 
 function Navbar() {
   const pathname = usePathname();
-  console.log("path name is" + pathname)
+  // console.log("path name is" + pathname)
 
   return (
     <div className="bg-[#f8f9fb] w-full  ">

@@ -58,9 +58,12 @@ function Page({ params }: any) {
       collection(db, "Users"),
       where("userId", "==", querySnapshot.docs[0].data().authorUserId)
     );
+
     const querySnapshotforUser = await getDocs(q2);
     const docUser = querySnapshotforUser.docs[0];
+  
     SetSnippetData({
+      id: doc.id,
       author: docUser.data().userName,
       ...doc.data(),
     } as SnippetDataInterface);

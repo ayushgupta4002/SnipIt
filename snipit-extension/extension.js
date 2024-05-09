@@ -183,7 +183,10 @@ async function pushSnippet(text, userId , name, mySecret) {
     //   const data = await res.json();
     if (res.status !== 200) {
       reject(new Error(`Error posting data :  ${res.body.message}`));
-    } else {
+    } 
+    if(res.status == 404 ){
+      reject(new Error("Please Auth Again!"));
+    }else {
       resolve();
     }
   });

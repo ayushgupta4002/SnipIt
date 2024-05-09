@@ -31,19 +31,29 @@ import {
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 import { Label } from "./ui/label";
+import { useRouter , usePathname } from 'next/navigation';
+
+
 function PostActions({ SnippetData }: { SnippetData: SnippetDataInterface }) {
   const { toast } = useToast();
+  const router = useRouter()
+  const pathname = usePathname();
 
   const db = getFirestore(app);
   const { changeAllSnippets } = useAuth();
+  // console.log(SnippetData)
 
   const deletedata = async () => {
-    console.log(SnippetData.id);
+    // console.log(SnippetData.id);
     changeAllSnippets(SnippetData.SnipId, SnippetData.id);
     await deleteDoc(doc(db, "Snippets", SnippetData.id));
+    if(pathname != "/Profile"){
+      router.push("/Profile")
+    }
     toast({
       description: "Snippet deleted!",
     });
+
   };
 
   return (

@@ -47,11 +47,11 @@ function Page() {
           userName: user?.username, 
         }).catch((err)=>console.log(err));
       }
-      console.log("user exists");
+      // console.log("user exists");
       getAllItems(querySnapshot.docs[0].data().userId ,user?.username);
 
     } else {
-      console.log("user added in db");
+      // console.log("user added in db");
       const token: string = generateAPIToken();
       const userId : string = generateuserID(user&&user.username);
 
@@ -63,7 +63,7 @@ function Page() {
         userId: userId
       })
         .then((resp) => {
-          console.log(resp);
+          // console.log(resp);
           if (resp.id) {
             console.log("user registered");
           }
