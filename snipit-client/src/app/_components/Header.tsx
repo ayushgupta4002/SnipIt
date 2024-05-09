@@ -44,7 +44,7 @@ function Header() {
       <div className="flex flex-row items-center ">
       <SignedOut>
 
-        <div className="flex flex-row  sm:gap-4">
+        <div className="flex flex-row  sm:gap-4 gap-3">
         <Link href={"/sign-in"}>  <div
             className="block rounded-md  px-5 py-2.5 max-sc-400:px-3 text-sm font-medium text-white transition hover:bg-teal-500"
           >
