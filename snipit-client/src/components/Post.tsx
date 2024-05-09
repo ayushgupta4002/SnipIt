@@ -10,12 +10,12 @@ function Post({ SnippetData }: { SnippetData: SnippetDataInterface }) {
 
       <div className="h-fit bg-[#f8f9fb] rounded-xl flex flex-col p-4 my-5 cursor-pointer mx-2">
         <Link href={`/Snippet/${SnippetData.SnipId}`}>
-          <div className="text-sm font-normal text-black ">
+          <div className="text-sm font-normal text-black  max-[390px]:text-xs ">
             @{SnippetData.author}
           </div>
-          <div className="text-xl font-semibold my-2 ">{SnippetData.name} </div>
+          <div className="text-xl font-semibold my-2 max-[390px]:text-lg">{SnippetData.name} </div>
 
-          <div className="text-base font-normal my-2 text-slate-800 ">
+          <div className="text-base font-normal my-2 text-slate-800 max-[390px]:text-sm ">
             {SnippetData.description == "" ? (
               <> {SnippetData.snippet.substring(0, 40)}...</>
             ) : (

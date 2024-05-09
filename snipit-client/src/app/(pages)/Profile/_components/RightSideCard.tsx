@@ -8,9 +8,9 @@ import { SnippetDataInterface } from "@/app/utills/Interfaces";
 
 function RightSideCard({ user,SnippetData }: { user: any , SnippetData: SnippetDataInterface[] }) {
   return (
-    <div className="flex sticky top-0 w-full  flex-row ">
-      <hr className="w-[1px] h-screen bg-[#e2e8f0cc]"></hr>
-      <div className="bg-transparent h-fit flex flex-col w-full m-5  pt-[5vh] rounded-xl">
+    <div className="flex sticky top-0  w-full  flex-row ">
+      <hr className="w-[1px] md:h-screen h-fit bg-[#e2e8f0cc]"></hr>
+      <div className="bg-transparent h-fit flex flex-col w-full m-5  pt-[5vh] max-sc-800:pt-[2vh] rounded-xl">
         <Image
           src={user.imageUrl}
           width={80}
@@ -18,7 +18,7 @@ function RightSideCard({ user,SnippetData }: { user: any , SnippetData: SnippetD
           alt="Welcome!"
           className="mx-4  rounded-full"
         />
-        <div className="font-bold text-black roboto text-left text-2xl	 py-4 px-4">
+        <div className="font-bold text-black roboto text-left text-2xl	 max-[750px]:text-xl max-[450px]:text-lg py-4 px-4">
           {user.fullName}
         </div>
         <div className="flex flex-col gap-3">
@@ -40,7 +40,7 @@ function RightSideCard({ user,SnippetData }: { user: any , SnippetData: SnippetD
       <FlamesComponent/>
         <hr className="h-[1px] mx-4 mt-2 border-0 dark:bg-gray-700 bg-slate-600"></hr>
 
-        <div className="px-4 mt-8 mb-4 text-base text-black roboto">Snipit API Token :</div>
+        <div className="px-4 mt-8 mb-4 text-sm text-black roboto md:text-base">Snipit API Token :</div>
         <APiKeyField user={user}/>
       </div>
     </div>

@@ -8,8 +8,8 @@ import React  from "react";
 
 function Header() {
   return (
-    <header className="bg-black h-[11vh] ">
-  <div className="mx-auto flex h-17 pt-2 max-w-screen-xl items-center gap-8 px-4 pt-1 sm:px-6 lg:px-8">
+    <header className="bg-black h-fit  ">
+  <div className="mx-auto flex h-17 py-3 max-w-screen-xl items-center gap-8 px-4 sm:px-6 lg:px-8">
     <a className="block text-teal-600 flex flex-row items-center" href="#">
       <Image src={"/logo2.png"} width={65} height={65} alt="Welcome!" />
       <span className="text-white text-3xl mt-1  roboto font-semibold tracking-wide px-2">SnipIt</span>
