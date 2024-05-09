@@ -1,6 +1,6 @@
 "use client"
 
-import { SignInButton, SignUpButton, SignedOut } from "@clerk/nextjs";
+import { SignIn, SignInButton, SignUpButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import Image from "next/image";
 import Link from "next/link";
 import React  from "react";
@@ -61,6 +61,14 @@ function Header() {
           </div></Link>
         </div>
         </SignedOut>
+        <SignedIn>
+          <UserButton appearance={{
+                  elements: {
+                    avatarBox: "h-10 w-10 mr-3",
+                  },
+                }}/>
+        </SignedIn>
+
 
         {/* <button
           className="block rounded bg-gray-100 p-2.5 text-gray-600 transition hover:text-gray-600/75 md:hidden"
