@@ -10,7 +10,7 @@ export default function Hero() {
 
       <CodeXml className="-rotate-12 fixed  right-12 mt-10" color="cyan" size={39}></CodeXml>
 
-        <div className="mx-auto max-w-screen-xl px-4 pt-[25vh] lg:flex lg:h-screen lg:items-center">
+        <div className="mx-auto max-w-screen-xl px-4 pt-[23vh] lg:flex lg:h-screen lg:items-center">
           <div className="mx-auto max-w-3xl text-center">
             <h1 className="bg-gradient-to-r tracking-wide  roboto from-green-300 via-blue-500 to-purple-600 bg-clip-text text-3xl font-extrabold text-transparent sm:text-5xl">
               Save.Share.Reuse

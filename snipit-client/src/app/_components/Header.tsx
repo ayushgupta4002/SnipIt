@@ -8,11 +8,11 @@ import React  from "react";
 
 function Header() {
   return (
-    <header className="bg-black h-fit  ">
+    <header className="bg-black h-fit max-w-screen  ">
   <div className="mx-auto flex h-17 py-3 max-w-screen-xl items-center gap-8 px-4 sm:px-6 lg:px-8">
     <a className="block text-teal-600 flex flex-row items-center" href="#">
       <Image src={"/logo2.png"} width={65} height={65} alt="Welcome!" />
-      <span className="text-white text-3xl mt-1  roboto font-semibold tracking-wide px-2">SnipIt</span>
+      <span className="text-white text-3xl mt-1 max-sc-400:text-2xl roboto font-semibold tracking-wide px-2 max-sc-400:px-1">SnipIt</span>
     </a>
 
     <div className="flex flex-1 items-center justify-end md:justify-between">
@@ -41,26 +41,26 @@ function Header() {
         
         </ul> */}
       </nav>
+      <div className="flex flex-row items-center ">
+      <SignedOut>
 
-      <div className="flex items-center gap-4">
-
-        <SignedOut>
-        <div className="sm:flex sm:gap-4">
+        <div className="flex flex-row  sm:gap-4">
         <Link href={"/sign-in"}>  <div
-            className="block rounded-md  px-5 py-2.5 text-sm font-medium text-white transition hover:bg-teal-500"
+            className="block rounded-md  px-5 py-2.5 max-sc-400:px-3 text-sm font-medium text-white transition hover:bg-teal-500"
           >
             {/* <LoginLink postLoginRedirectURL="/dashboard">Login</LoginLink> */}
             Login
           </div></Link>
 
         <Link href={"/sign-up"}>  <div
-            className="hidden rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-black transition hover:text-teal-600/75 sm:block"
+            className=" rounded-md bg-gray-100 px-5 max-sc-400:px-3  py-2.5 text-sm font-medium text-black transition hover:text-teal-600/75 sm:block"
           >
             {/* <di postLoginRedirectURL="/dashboard">Register</RegisterLink> */}
             Register
           </div></Link>
         </div>
         </SignedOut>
+        
         <SignedIn>
           <UserButton appearance={{
                   elements: {
