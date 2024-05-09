@@ -36,7 +36,7 @@ function Page({ params }: any) {
 
   const db = getFirestore(app);
   useEffect(() => {
-    console.log(params);
+    // console.log(params);
 
     getData();
    
