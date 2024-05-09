@@ -6,7 +6,7 @@ import { SignIn } from "@clerk/nextjs";
 export default function Home() {
   return (
 
-    <div>
+    <div className="bg-black h-screen">
       <Header/>
       <Hero/>
     </div>

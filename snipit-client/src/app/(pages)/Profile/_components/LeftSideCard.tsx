@@ -16,15 +16,15 @@ function LeftSideCard({
 }) {
   const db = getFirestore(app);
   return (
-    <div className="p-6">
-      <div className="flex flex-col w-[3/4vw] mx-10 ">
+    <div className="p-6 max-[350px]:p-3">
+      <div className="flex flex-col  min-[800px]:w-[3/4vw]   max-[350px]:mx-5 ">
         <div className="flex flex-row justify-between mx-[2vw] mt-[2vh] items-center">
-          <div className="text-4xl font-medium flex roboto tracking-wide flex-row gap-1 items-center">
+          <div className="text-4xl max-[600px]:text-3xl max-[350px]:text-2xl font-medium flex roboto  tracking-wide flex-row gap-1 items-center">
             <Bookmark className="h-18 w-17 "/> Your Snips
           </div>
         </div>
 
-        <div className="mt-3">
+        <div className="mt-3 max-[450px]:mt-1">
           {SnippetData.length > 0 ? (
             <>
               {SnippetData.map((item: SnippetDataInterface, index) => (

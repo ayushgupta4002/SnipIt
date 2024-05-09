@@ -5,19 +5,19 @@ import React from "react";
 export default function Hero() {
   return (
     <div>
-      <section className="bg-black text-white overflow-hidden h-[89vh]	">
+      <section className="bg-black text-white overflow-hidden h-full	">
       <FileCode className="-rotate-12 fixed  left-10 mt-10 " color="cyan" size={39}></FileCode>
 
       <CodeXml className="-rotate-12 fixed  right-12 mt-10" color="cyan" size={39}></CodeXml>
 
-        <div className="mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:h-screen lg:items-center">
+        <div className="mx-auto max-w-screen-xl px-4 pt-[25vh] lg:flex lg:h-screen lg:items-center">
           <div className="mx-auto max-w-3xl text-center">
             <h1 className="bg-gradient-to-r tracking-wide  roboto from-green-300 via-blue-500 to-purple-600 bg-clip-text text-3xl font-extrabold text-transparent sm:text-5xl">
               Save.Share.Reuse
-              <span className="sm:block roboto h-24 tracking-wide "> Give your code a shelf</span>
+              <p className="sm:block roboto h-fit tracking-wide "> Give your code a shelf</p>
             </h1>
 
-            <p className="mx-auto roboto font-medium  text-lg tracking-wide  max-w-4xl sm:text-xl/relaxed">
+            <p className="mx-auto roboto font-normal mt-4 text-lg tracking-wide  max-w-4xl sm:text-xl/relaxed">
             Introducing Snipit, your go-to solution for effortlessly managing and reusing your coding components - and so much more.
             </p>
 

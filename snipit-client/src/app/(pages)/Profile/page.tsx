@@ -85,12 +85,12 @@ function Page() {
           <Loader />
         </>
       ) : (
-        <div className=" w-full flex flex-col no-scrollbar">
+        <div className=" w-full flex flex-col no-scrollbar overflow-x-hidden">
           <Navbar />
           <hr className="bg-[#e2e8f0cc]"></hr>
 
           {/* posts and right side bar */}
-          <div className="mx-[1vw] flex flex-row">
+          <div className="mx-[1vw] flex flex-col-reverse sc-800:flex-row">
             <div className="basis-2/3 mt-[2vh] ">
               <LeftSideCard user={user} SnippetData={allSnippets} />
             </div>

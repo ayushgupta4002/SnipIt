@@ -64,9 +64,9 @@ function PostActions({ SnippetData }: { SnippetData: SnippetDataInterface }) {
 
         <Dialog>
           <DialogTrigger asChild>
-            <div className="rounded-full px-3  h-fit w-fit   bg-slate-200 items-center cursor-pointer  flex flex-row p-2">
-              <Share className="m-1 h-4 w-4" />
-              <div className="text-sm">Share</div>
+            <div className="rounded-full px-3 max-[430px]:px-2 py-2  max-[430px]:py-2  h-fit w-fit   bg-slate-200 items-center cursor-pointer  flex flex-row ">
+              <Share className=" h-4 w-4 max-[470px]:h-3 max-[470x]:w-3" />
+              <div className="text-sm max-[430px]:text-xs ml-1">Share</div>
             </div>
           </DialogTrigger>
           <DialogContent className="sm:max-w-md">
@@ -114,7 +114,7 @@ function PostActions({ SnippetData }: { SnippetData: SnippetDataInterface }) {
         </Dialog>
       </div>
 
-      <AlertDialog >
+      <AlertDialog  >
         <AlertDialogTrigger className="" >
             <div
               className="rounded-full   h-fit w-fit  items-center cursor-pointer  flex flex-row p-1"
@@ -123,7 +123,7 @@ function PostActions({ SnippetData }: { SnippetData: SnippetDataInterface }) {
               <Trash className="m-1" size={18} />
             </div>
         </AlertDialogTrigger>
-        <AlertDialogContent>
+        <AlertDialogContent >
           <AlertDialogHeader>
             <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
             <AlertDialogDescription>

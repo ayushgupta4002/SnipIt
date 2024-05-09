@@ -73,6 +73,11 @@ const config = {
         "accordion-up": "accordion-up 0.2s ease-out",
       },
     },
+    screens:{
+      'sc-800': '800px',
+      'sc-600': '600px',
+      "sc-400" :'400px'
+    }
   },
   plugins: [require("tailwindcss-animate")],
 } satisfies Config
